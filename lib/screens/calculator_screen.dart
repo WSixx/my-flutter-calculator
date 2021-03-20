@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_calculator/components/display.dart';
+import 'package:my_calculator/components/keyboard.dart';
 
 class CalculatorScreen extends StatelessWidget {
   @override
@@ -9,8 +10,8 @@ class CalculatorScreen extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Column(
         children: [
-          Display(text: 'Display'),
-          Text('Keyboard'),
+          Display(text: '123.65'),
+          Keyboard(),
         ],
       ),
     );
