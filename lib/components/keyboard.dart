@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_calculator/components/button.dart';
 
 class Keyboard extends StatelessWidget {
   @override
@@ -7,6 +8,7 @@ class Keyboard extends StatelessWidget {
       height: 500,
       child: Column(
         children: [
+          Button(text: '1'),
           ElevatedButton(
             onPressed: () {},
             child: Text('9'),
