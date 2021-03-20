@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_calculator/components/display.dart';
 import 'package:my_calculator/components/keyboard.dart';
+import 'package:my_calculator/models/memory.dart';
 
 class CalculatorScreen extends StatefulWidget {
   @override
@@ -8,7 +9,13 @@ class CalculatorScreen extends StatefulWidget {
 }
 
 class _CalculatorScreenState extends State<CalculatorScreen> {
-  _onPressed(String text) {}
+  final Memory memory = Memory();
+
+  _onPressed(String command) {
+    setState(() {
+      memory.applyCommand(command);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +24,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       debugShowCheckedModeBanner: false,
       home: Column(
         children: [
-          Display(text: '123.65'),
+          Display(text: memory.value),
           Keyboard(cb: _onPressed),
         ],
       ),
