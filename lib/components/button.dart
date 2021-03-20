@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
@@ -8,21 +9,25 @@ class Button extends StatelessWidget {
   final String text;
   final bool isBig;
   final Color color;
+  final void Function(String) cb;
 
   const Button({
     @required this.text,
     this.isBig = false,
     this.color = DEFAULT,
+    @required this.cb,
   });
   const Button.big({
     @required this.text,
     this.isBig = true,
     this.color = DEFAULT,
+    @required this.cb,
   });
   const Button.operation({
     @required this.text,
     this.isBig = false,
     this.color = OPERATION,
+    @required this.cb,
   });
   @override
   Widget build(BuildContext context) {
@@ -32,7 +37,7 @@ class Button extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           primary: color,
         ),
-        onPressed: () {},
+        onPressed: () => cb(text),
         child: Text(
           text,
           style: TextStyle(

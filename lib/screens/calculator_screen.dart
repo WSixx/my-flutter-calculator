@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:my_calculator/components/display.dart';
 import 'package:my_calculator/components/keyboard.dart';
 
-class CalculatorScreen extends StatelessWidget {
+class CalculatorScreen extends StatefulWidget {
+  @override
+  _CalculatorScreenState createState() => _CalculatorScreenState();
+}
+
+class _CalculatorScreenState extends State<CalculatorScreen> {
+  _onPressed(String text) {}
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -11,7 +18,7 @@ class CalculatorScreen extends StatelessWidget {
       home: Column(
         children: [
           Display(text: '123.65'),
-          Keyboard(),
+          Keyboard(cb: _onPressed),
         ],
       ),
     );
